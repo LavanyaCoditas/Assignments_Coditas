@@ -1,5 +1,6 @@
 package Assignment2;
 
+import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -8,27 +9,27 @@ public class ArrayListLinkedList
     public static void main(String[] args)
     {
         ArrayList <Integer> myList =new ArrayList<>();
-        myList.add(1);
-        myList.add(32);
-        myList.add(8);
-        myList.add(90);
-        myList.add(900);
-        myList.add(2);
-        myList.add(81);
-        myList.add(1);
-        myList.add(211);
-        myList.add(89);
+        long start1=System.currentTimeMillis();
+        for(int i=0;i<200;i++)
+        {
+            myList.add(i);
+        }
+
         System.out.println("List after adding all elements: "+myList);
+
         System.out.println("*******************************************************************");
         System.out.println("remove 5th element");
         myList.remove(5);
         System.out.println("element removed "+myList);
         System.out.println("after removal: "+myList);
+        long end1=System.currentTimeMillis();
+        System.out.println("time to do insertion in arraylist:"+(end1-start1));
 
         System.out.println("************************************************************************");
         System.out.println("Let's create a Linked list:)");
         LinkedList <Integer> linked = new LinkedList<>();
-       for(int i =100;i<=1000;i+=100)
+        long start2=System.currentTimeMillis();
+       for(int i =100;i<=200;i++)
        {
            linked.add(i);
        }
@@ -36,5 +37,7 @@ public class ArrayListLinkedList
        linked.remove(5);
         System.out.println("element at 5th index removed from linked list");
         System.out.println(linked);
+        long end2=System.currentTimeMillis();
+        System.out.println("Time to do operations on linkedlist:"+(end2-start2));
     }
 }
