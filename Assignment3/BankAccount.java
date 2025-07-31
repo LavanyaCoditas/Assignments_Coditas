@@ -20,7 +20,7 @@ public class BankAccount implements Runnable
             }
             catch (InterruptedException e)
             {
-                System.out.println("interrupt");
+                System.out.println("interrupted");
             }
         }
         else {
@@ -35,7 +35,7 @@ public class BankAccount implements Runnable
             {
                 System.out.println(Thread.currentThread().getName() + " is attempting to withdraw " + amt);
                 balance -= amt;
-                System.out.println(Thread.currentThread().getName() + ": withdrawal successful, new balance: " + balance);
+                System.out.println(Thread.currentThread().getName() + ": withdrawal successful,our new balance: " + balance);
                 Thread.sleep(500); // Simulate processing time
             }
             catch (InterruptedException e)
@@ -51,8 +51,8 @@ public class BankAccount implements Runnable
 
     @Override
     public void run() {
-        // Each thread attempts to withdraw a specific amount
-        withdraw(amt); // Example: each thread tries to withdraw 5000
+       // each thread run these methods present here 
+        withdraw(amt); 
         credit(addAmt);
     }
 
@@ -63,7 +63,8 @@ public class BankAccount implements Runnable
         amt =sc.nextDouble();
         System.out.println("enter amount you want to credit");
         addAmt=sc.nextDouble();
-        BankAccount account = new BankAccount(); // Single shared account
+        // Single shared account- here we created a single object of thebank class so it is been shared 
+        BankAccount account = new BankAccount(); 
         Thread t1 = new Thread(account, "bank1");
         Thread t2 = new Thread(account, "bank2");
         t1.start();
